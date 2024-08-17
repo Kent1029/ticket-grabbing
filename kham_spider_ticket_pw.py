@@ -175,7 +175,7 @@ def main():
             click_plus_button(page)
         
         input_username(page, "N126077414")
-        input_password(page, "Haru_0900248311")
+        input_password(page, "")
 
         process_captcha(page, ocr)
         

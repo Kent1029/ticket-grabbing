@@ -30,19 +30,19 @@ This project is an automation script for booking tickets on the `kham.com.tw` we
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/ticket-booking-automation.git
-   cd ticket-booking-automation
+   $ git clone https://github.com/yourusername/ticket-booking-automation.git
+   $ cd ticket-booking-automation
    ```
 
 2. **Install the required Python packages:**
 
 You can install the required packages using pip:
 ```bash
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 
 If playwright is not installed, you may need to install it manually:
-pip3 install playwright
-playwright install
+$ pip3 install playwright
+$ playwright install
 ```
 
 Update the username and password in the main() function.
@@ -50,5 +50,5 @@ Adjust any other parameters, such as the target URL or the thread count if neede
 
 3. Run the script:
 ```
-python3 kham_spider_ticket_pw.py
+$ python3 kham_spider_ticket_pw.py
 ```

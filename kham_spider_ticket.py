@@ -206,8 +206,8 @@ def main():
         threads.append(thread)
         thread.start()
     
-    threads.append(threading.Thread(target=input_username, args=(driver, "qaw8975889@gmail.com")))
-    threads.append(threading.Thread(target=input_password, args=(driver, "asdasd")))
+    threads.append(threading.Thread(target=input_username, args=(driver, "@gmail.com")))
+    threads.append(threading.Thread(target=input_password, args=(driver, "")))
 
     for thread in threads[-2:]:
         thread.start()
