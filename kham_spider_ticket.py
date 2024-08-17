@@ -187,8 +187,8 @@ def main():
     for row in rows:
         seats = row.find_element(By.CSS_SELECTOR, 'td[data-title="空位："]').text.strip()
         if seats != "已售完":
-            area = row.find_element(By.CSS_SELECTOR, 'td[data-title="票區：']").text.strip()
-            price = row.find_element(By.CSS_SELECTOR, 'td[data-title="票價：']").text.strip()
+            area = row.find_element(By.CSS_SELECTOR, 'td[data-title="票區："]').text.strip()
+            price = row.find_element(By.CSS_SELECTOR, 'td[data-title="票價："]').text.strip()
             ticket_element = row.find_element(By.CSS_SELECTOR, 'td')
             available_tickets.append({"Area": area, "Price": price, "Seats": seats, "Element": ticket_element})
 

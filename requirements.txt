@@ -1,3 +1,4 @@
 selenium
 ddddocr
 webdriver-manager
+playwright

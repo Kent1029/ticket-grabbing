@@ -275,3 +275,343 @@
 2024-08-17 23:21:35,900 - __main__ - INFO - 验证码处理完毕，输入: FN3g
 2024-08-17 23:21:36,141 - __main__ - INFO - 添加到購物車...
 2024-08-17 23:21:41,851 - __main__ - INFO - 成功添加到購物車
+2024-08-17 23:57:08,477 - __main__ - INFO - Starting ticket booking process...
+2024-08-17 23:57:08,480 - WDM - INFO - ====== WebDriver manager ======
+2024-08-17 23:57:09,328 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-17 23:57:09,648 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-17 23:57:09,889 - WDM - INFO - Driver [/Users/harveychan/.wdm/drivers/chromedriver/mac64/127.0.6533.119/chromedriver-mac-x64/chromedriver] found in cache
+2024-08-17 23:57:55,983 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-17 23:58:23,752 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-17 23:58:23,753 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-17 23:58:41,635 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-17 23:58:41,635 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-17 23:58:42,548 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-17 23:58:47,670 - __main__ - INFO - Selected ticket: {'Area': '2樓橙210區3080元', 'Price': '3,080', 'Seats': '27', 'Element': <selenium.webdriver.remote.webelement.WebElement (session="50f615b3f918eb5d8896947b5c389a55", element="f.10A5E232F78A952064BDCEE0FDBEAA14.d.33B7FD7F3D2D820F1EA1DACED355F752.e.323")>}
+2024-08-17 23:59:33,475 - __main__ - INFO - Clicking plus button...
+2024-08-17 23:59:33,476 - __main__ - INFO - Clicking plus button...
+2024-08-17 23:59:33,478 - __main__ - INFO - Entering username...
+2024-08-17 23:59:33,480 - __main__ - INFO - Entering password...
+2024-08-17 23:59:36,563 - __main__ - INFO - Successfully clicked plus button.
+2024-08-17 23:59:37,469 - urllib3.connectionpool - WARNING - Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2024-08-17 23:59:37,470 - __main__ - INFO - Username entered successfully.
+2024-08-17 23:59:38,686 - urllib3.connectionpool - WARNING - Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2024-08-17 23:59:38,687 - __main__ - INFO - Successfully clicked plus button.
+2024-08-17 23:59:39,209 - urllib3.connectionpool - WARNING - Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2024-08-17 23:59:39,210 - __main__ - INFO - Password entered successfully.
+2024-08-17 23:59:39,210 - __main__ - INFO - Processing captcha...
+2024-08-17 23:59:39,355 - __main__ - INFO - Captcha processed successfully, input: Mb8s
+2024-08-17 23:59:39,594 - __main__ - INFO - Adding to shopping cart...
+2024-08-17 23:59:41,935 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:05:50,152 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:06:58,908 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:07:10,142 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:07:10,328 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:07:10,328 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:07:11,061 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:07:11,061 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:07:11,389 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:07:12,545 - __main__ - INFO - Selected ticket: {'Area': '2樓橙207區4280元', 'Price': '4,280', 'Seats': '8', 'Element': <JSHandle preview=JSHandle@<tr rel="a16" id="P0KZ7F4Y" class="status_tr">…</tr>>}
+2024-08-18 00:07:12,911 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:07:12,912 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:07:12,912 - __main__ - INFO - Entering username...
+2024-08-18 00:07:12,912 - __main__ - INFO - Entering password...
+2024-08-18 00:07:12,965 - __main__ - INFO - Processing captcha...
+2024-08-18 00:07:13,346 - asyncio - ERROR - Exception in callback SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:763>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111
+handle: <Handle SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:763>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111>
+Traceback (most recent call last):
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 163, in main
+    process_captcha(page, ocr)
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 76, in process_captcha
+    image_data = page.evaluate("""
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/sync_api/_generated.py", line 8350, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_page.py", line 440, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_frame.py", line 278, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 514, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token 'return'
+    at eval (<anonymous>)
+    at UtilityScript.evaluate (<anonymous>:234:30)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 111, in <lambda>
+    task.add_done_callback(lambda _: g_self.switch())
+                                     ^^^^^^^^^^^^^^^
+greenlet.error: cannot switch to a different thread (which happens to have exited)
+2024-08-18 00:07:13,349 - asyncio - ERROR - Exception in callback SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:763>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111
+handle: <Handle SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:763>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111>
+Traceback (most recent call last):
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 163, in main
+    process_captcha(page, ocr)
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 76, in process_captcha
+    image_data = page.evaluate("""
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/sync_api/_generated.py", line 8350, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_page.py", line 440, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_frame.py", line 278, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 514, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token 'return'
+    at eval (<anonymous>)
+    at UtilityScript.evaluate (<anonymous>:234:30)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 111, in <lambda>
+    task.add_done_callback(lambda _: g_self.switch())
+                                     ^^^^^^^^^^^^^^^
+greenlet.error: cannot switch to a different thread (which happens to have exited)
+2024-08-18 00:07:13,349 - asyncio - ERROR - Exception in callback SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:807>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111
+handle: <Handle SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:807>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111>
+Traceback (most recent call last):
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 163, in main
+    process_captcha(page, ocr)
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 76, in process_captcha
+    image_data = page.evaluate("""
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/sync_api/_generated.py", line 8350, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_page.py", line 440, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_frame.py", line 278, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 514, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token 'return'
+    at eval (<anonymous>)
+    at UtilityScript.evaluate (<anonymous>:234:30)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 111, in <lambda>
+    task.add_done_callback(lambda _: g_self.switch())
+                                     ^^^^^^^^^^^^^^^
+greenlet.error: cannot switch to a different thread (which happens to have exited)
+2024-08-18 00:07:13,350 - asyncio - ERROR - Exception in callback SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:807>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111
+handle: <Handle SyncBase._sync.<locals>.<lambda>(<Task cancell..._page.py:807>>) at /usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py:111>
+Traceback (most recent call last):
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 163, in main
+    process_captcha(page, ocr)
+  File "/Users/harveychan/Documents/文件 - 詹竣珷的MacBook Pro/spider/kham_spider_ticket_pw.py", line 76, in process_captcha
+    image_data = page.evaluate("""
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/sync_api/_generated.py", line 8350, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_page.py", line 440, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_frame.py", line 278, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 59, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 514, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token 'return'
+    at eval (<anonymous>)
+    at UtilityScript.evaluate (<anonymous>:234:30)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 111, in <lambda>
+    task.add_done_callback(lambda _: g_self.switch())
+                                     ^^^^^^^^^^^^^^^
+greenlet.error: cannot switch to a different thread (which happens to have exited)
+2024-08-18 00:07:13,366 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:07:13,367 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:07:13,367 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:07:13,367 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:09:46,056 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:09:51,623 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:09:51,717 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:09:51,717 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:09:52,396 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:09:52,396 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:09:52,653 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:09:53,491 - __main__ - INFO - Selected ticket: {'Area': '2樓綠212區3480元', 'Price': '3,480', 'Seats': '39', 'Element': <JSHandle preview=JSHandle@<tr rel="a123" id="P0KZ7F9Y" class="status_tr">…</tr>>}
+2024-08-18 00:10:56,077 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:11:00,709 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:11:00,946 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:11:00,947 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:11:01,433 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:11:01,433 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:11:01,686 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:11:02,516 - __main__ - INFO - Selected ticket: {'Area': '4樓綠406區2680元', 'Price': '2,680', 'Seats': '5', 'Element': <JSHandle preview=JSHandle@<tr id="P0KZ7F9O" rel="a125 a127" class="status_tr">…</tr>>}
+2024-08-18 00:11:02,937 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:11:03,193 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:11:03,194 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:11:03,230 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:11:03,230 - __main__ - INFO - Entering username...
+2024-08-18 00:11:03,236 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:11:03,236 - __main__ - INFO - Entering password...
+2024-08-18 00:11:03,246 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:11:03,246 - __main__ - INFO - Processing captcha...
+2024-08-18 00:11:51,238 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:11:58,414 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:11:58,538 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:11:58,538 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:12:00,313 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:12:00,314 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:12:00,555 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:12:01,465 - __main__ - INFO - Selected ticket: {'Area': '2樓綠215區3480元', 'Price': '3,480', 'Seats': '23', 'Element': <JSHandle preview=JSHandle@<tr rel="a119" id="P0KZ7F9E" class="status_tr">…</tr>>}
+2024-08-18 00:12:01,661 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:12:01,866 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:12:01,866 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:12:01,895 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:12:01,895 - __main__ - INFO - Entering username...
+2024-08-18 00:12:01,901 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:12:01,901 - __main__ - INFO - Entering password...
+2024-08-18 00:12:01,911 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:12:01,911 - __main__ - INFO - Processing captcha...
+2024-08-18 00:12:02,359 - __main__ - INFO - Captcha processed successfully, input: ak8s
+2024-08-18 00:12:02,366 - __main__ - INFO - Adding to shopping cart...
+2024-08-18 00:12:02,414 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:12:15,922 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:12:20,400 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:12:20,477 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:12:20,477 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:12:21,125 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:12:21,125 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:12:21,375 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:12:22,223 - __main__ - INFO - Selected ticket: {'Area': '2樓綠215區3480元', 'Price': '3,480', 'Seats': '23', 'Element': <JSHandle preview=JSHandle@<tr rel="a119" id="P0KZ7F9E" class="status_tr">…</tr>>}
+2024-08-18 00:12:22,339 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:12:22,553 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:12:22,553 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:12:22,610 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:12:22,611 - __main__ - INFO - Entering username...
+2024-08-18 00:12:22,616 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:12:22,616 - __main__ - INFO - Entering password...
+2024-08-18 00:12:22,626 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:12:22,627 - __main__ - INFO - Processing captcha...
+2024-08-18 00:12:22,704 - __main__ - INFO - Captcha processed successfully, input: mdg8
+2024-08-18 00:12:22,712 - __main__ - INFO - Adding to shopping cart...
+2024-08-18 00:12:22,761 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:27:39,275 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:27:44,430 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:27:44,571 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:27:44,571 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:27:45,163 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:27:45,164 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:27:45,416 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:27:46,214 - __main__ - INFO - Selected ticket: {'Area': '2樓綠214區3880元', 'Price': '3,880', 'Seats': '10', 'Element': <JSHandle preview=JSHandle@<tr id="P0KZ7F8I" rel="a116 a118" class="status_tr">…</tr>>}
+2024-08-18 00:27:46,386 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:27:46,595 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:27:46,595 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:27:46,634 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:27:46,634 - __main__ - INFO - Entering username...
+2024-08-18 00:27:46,641 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:27:46,641 - __main__ - INFO - Entering password...
+2024-08-18 00:27:46,654 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:27:46,654 - __main__ - INFO - Processing captcha...
+2024-08-18 00:27:46,727 - __main__ - INFO - Captcha processed successfully, input: x8m6
+2024-08-18 00:27:46,741 - __main__ - INFO - Adding to shopping cart...
+2024-08-18 00:27:46,786 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:27:46,786 - __main__ - INFO - Select get ticket from 7-11
+2024-08-18 00:27:51,635 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:28:00,959 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:28:07,173 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:28:07,308 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:28:07,308 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:28:07,985 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:28:07,985 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:28:08,257 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:28:09,000 - __main__ - INFO - Selected ticket: {'Area': '2樓綠215區3480元', 'Price': '3,480', 'Seats': '23', 'Element': <JSHandle preview=JSHandle@<tr rel="a119" id="P0KZ7F9E" class="status_tr">…</tr>>}
+2024-08-18 00:28:09,106 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:28:09,322 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:28:09,322 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:28:09,383 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:28:09,384 - __main__ - INFO - Entering username...
+2024-08-18 00:28:09,389 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:28:09,389 - __main__ - INFO - Entering password...
+2024-08-18 00:28:09,400 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:28:09,400 - __main__ - INFO - Processing captcha...
+2024-08-18 00:28:09,473 - __main__ - INFO - Captcha processed successfully, input: 4fk2
+2024-08-18 00:28:09,485 - __main__ - INFO - Adding to shopping cart...
+2024-08-18 00:28:09,562 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:28:09,562 - __main__ - INFO - Select get ticket from 7-11
+2024-08-18 00:28:31,934 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2024-08-18 00:28:34,158 - __main__ - INFO - Starting ticket booking process...
+2024-08-18 00:28:38,955 - __main__ - INFO - Attempting to click 'Buy Ticket' button...
+2024-08-18 00:28:39,085 - __main__ - INFO - Successfully clicked 'Buy Ticket' button.
+2024-08-18 00:28:39,085 - __main__ - INFO - Attempting to click 'Book Now' button...
+2024-08-18 00:28:39,704 - __main__ - INFO - Successfully clicked 'Book Now' button.
+2024-08-18 00:28:39,704 - __main__ - INFO - Selecting 'Computer Seat Assignment'...
+2024-08-18 00:28:39,977 - __main__ - INFO - Successfully selected 'Computer Seat Assignment'.
+2024-08-18 00:28:40,720 - __main__ - INFO - Selected ticket: {'Area': '2樓橙208區3080元', 'Price': '3,080', 'Seats': '22', 'Element': <JSHandle preview=JSHandle@<tr rel="a40" id="P0KZ7F4U" class="status_tr">…</tr>>}
+2024-08-18 00:28:40,848 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:28:41,060 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:28:41,060 - __main__ - INFO - Clicking plus button...
+2024-08-18 00:28:41,084 - __main__ - INFO - Successfully clicked plus button.
+2024-08-18 00:28:41,084 - __main__ - INFO - Entering username...
+2024-08-18 00:28:41,089 - __main__ - INFO - Username entered successfully.
+2024-08-18 00:28:41,090 - __main__ - INFO - Entering password...
+2024-08-18 00:28:41,099 - __main__ - INFO - Password entered successfully.
+2024-08-18 00:28:41,100 - __main__ - INFO - Processing captcha...
+2024-08-18 00:28:41,158 - __main__ - INFO - Captcha processed successfully, input: 38ng
+2024-08-18 00:28:41,173 - __main__ - INFO - Adding to shopping cart...
+2024-08-18 00:28:41,219 - __main__ - INFO - Successfully added to shopping cart.
+2024-08-18 00:28:41,219 - __main__ - INFO - Select get ticket from 7-11
+2024-08-18 00:29:04,622 - __main__ - INFO - Successfully clicked get ticket
+2024-08-18 00:29:04,628 - __main__ - INFO - Click agree
+2024-08-18 00:29:04,676 - __main__ - INFO - Successfully clicked agree
+2024-08-18 00:29:04,676 - __main__ - INFO - Click next step
+2024-08-18 00:29:04,802 - __main__ - INFO - Successfully clicked next step
