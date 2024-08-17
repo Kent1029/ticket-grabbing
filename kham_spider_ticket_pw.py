@@ -1,13 +1,13 @@
-import json
 import os
 import time
 import random
 import ddddocr
 import logging
 import base64
-import threading
 from playwright.sync_api import sync_playwright
+from dotenv import load_dotenv
 
+load_dotenv()
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -142,11 +142,16 @@ def add_shopping_cart(page):
 
 def main():
     logger.info("Starting ticket booking process...")
+    
+    url = os.getenv("URL")
+    username = os.getenv("USERNAME")
+    password = os.getenv("PASSWORD")
+    
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
 
-        page.goto("https://kham.com.tw/application/UTK02/UTK0201_.aspx?PRODUCT_ID=P0KYQBSU#")
+        page.goto(url)
         
         ocr = ddddocr.DdddOcr()
 
@@ -174,8 +179,8 @@ def main():
         for _ in range(2):
             click_plus_button(page)
         
-        input_username(page, "N126077414")
-        input_password(page, "")
+        input_username(page, username)
+        input_password(page, password)
 
         process_captcha(page, ocr)
         

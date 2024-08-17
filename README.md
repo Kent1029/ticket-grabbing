@@ -48,7 +48,12 @@ $ playwright install
 Update the username and password in the main() function.
 Adjust any other parameters, such as the target URL or the thread count if needed.
 
-3. Run the script:
+3. Copy .env.example as .env, and input url, username, password
+```
+$ copy .env.example .env
+```
+
+4. Run the script:
 ```
 $ python3 kham_spider_ticket_pw.py
 ```
