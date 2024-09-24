@@ -1,5 +1,6 @@
-selenium
 ddddocr
 webdriver-manager
 playwright
 python-dotenv
+pytesseract
+Pillow
