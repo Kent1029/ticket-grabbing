@@ -3,11 +3,15 @@ import time
 import random
 import ddddocr
 import logging
-import base64
+import pytesseract
+from PIL import Image
+from io import BytesIO
 from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -20,181 +24,129 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def buy_ticket(page):
+    """Click on the 'Buy Ticket' button."""
     logger.info("Attempting to click 'Buy Ticket' button...")
-    page.click("xpath=//*[@class='red large light'][contains(text(),'我要購票')]")
+    page.click("xpath=//*[@class='buy']//div[contains(text(),'立即購票')]")
     logger.info("Successfully clicked 'Buy Ticket' button.")
 
-def input_username(page, username):
-    logger.info("Entering username...")
-    page.fill("xpath=//*[@id='LOGIN_ID']", username)
-    logger.info("Username entered successfully.")
+def buy_now(page):
+    """Click on the 'Buy Now' button for available games or events."""
+    logger.info("Attempting to click 'Buy Now' button...")
+    page.click("xpath=//*[@id='gameList']//tr/td[4]/button")
+    logger.info("Successfully clicked 'Buy Now' button.")
 
-def input_password(page, password):
-    logger.info("Entering password...")
-    page.fill("xpath=//*[@id='LOGIN_PWD']", password)
-    logger.info("Password entered successfully.")
-
-def booking_currently(page):
-    logger.info("Attempting to click 'Book Now' button...")
-    page.click("xpath=//*[@class='red'][contains(text(),'立即訂購')]")
-    logger.info("Successfully clicked 'Book Now' button.")
-
-def select_ticket_type(page):
-    logger.info("Selecting ticket type...")
-    page.click("xpath=//tr[@class='status_tr']//*[contains(text(),'對號座位')]")
-    logger.info("Successfully selected ticket type.")
-
-def default_price(page):
-    logger.info("Selecting default price...")
-    page.click("xpath=//button[contains(text(),'原價')]")
-    logger.info("Successfully selected default price.")
-
-def computer_selector(page):
-    logger.info("Selecting 'Computer Seat Assignment'...")
-    page.click("xpath=//div[@id='choice']//button[contains(text(), '電腦配位')]")
-    logger.info("Successfully selected 'Computer Seat Assignment'.")
-
-def click_plus_button(page):
-    logger.info("Clicking plus button...")
-    page.click("xpath=//button[@class='minus plus']")
-    logger.info("Successfully clicked plus button.")
-
-def select_get_ticket_method(page):
-    logger.info("Select get ticket from 7-11")
-    page.click("xpath=//*[@id='GET_METOD_ROOT']/label[2]")
-    logger.info("Successfully clicked get ticket")
-    
-def click_agree(page):
-    logger.info("Click agree")
-    page.click("xpath=//*[@id='agreen']")
-    logger.info("Successfully clicked agree")
-
-def click_popup_alert(page):
-    page.click("xpath=/html/body/div[1]/div[3]/div/button")
-
-def select_empty_seats(page):
-    logger.info("Selecting empty seats...")
-    empty_seats = page.query_selector_all('css=td.empty.up')
-    if len(empty_seats) >= 2:
-        empty_seats[0].click()
-        empty_seats[1].click()
-        logger.info("Successfully selected empty seats.")
-    else:
-        logger.warning("Not enough adjacent seats available.")
-
-def click_next_step(page):
-    logger.info("Click next step")
-    page.click("xpath=//*[@id='NEXT_BTN_SHOW']")
-    logger.info("Successfully clicked next step")
-    
-def click_checkout(page):
-    logger.info("Click checkout")
-    page.click("xpath=//button[contains(text(), '結帳')]")
-    logger.info("Successfully clicked checkout")
-    
-def process_captcha(page, ocr):
+def process_captcha(page):
+    """Download and process captcha using OCR."""
     logger.info("Processing captcha...")
+    
+    captcha_image = page.locator('#TicketForm_verifyCode-image')
+    captcha_image_src = captcha_image.get_attribute('src')
+    
+    # Download captcha image
+    captcha_image_response = page.request.get(captcha_image_src)
+    image_bytes = captcha_image_response.body()
 
-    # Execute JavaScript code to get Base64 encoded image data
-    image_data = page.evaluate("""
-        (function() {
-            function ticket_get_ocr_image() {
-                let image_data = "";
-                let image_id = 'chk_pic';
-                let img = document.getElementById(image_id);
-                if (img != null) {
-                    let canvas = document.createElement('canvas');
-                    let context = canvas.getContext('2d');
-                    canvas.height = img.naturalHeight;
-                    canvas.width = img.naturalWidth;
-                    context.drawImage(img, 0, 0);
-                    let img_data = canvas.toDataURL();
-                    if (img_data) {
-                        image_data = img_data.split(",")[1];
-                    }
-                }
-                return image_data;
-            }
-            return ticket_get_ocr_image();
-        })();
-    """)
+    # Open image with Pillow
+    image = Image.open(BytesIO(image_bytes))
 
-    if image_data:
-        # Convert Base64 encoded data to binary data
-        img_bytes = base64.b64decode(image_data)
-        
-        # Use OCR to recognize captcha
-        captcha_text = ocr.classification(img_bytes)
-        if captcha_text:
-            logger.info(f"Captcha processed successfully, input: {captcha_text}")
-            captcha_input = page.locator("xpath=//*[@id='CHK']")
-            captcha_input.fill(captcha_text.upper())
-        else:
-            logger.error("Failed to recognize the captcha.")
+    # Use Tesseract OCR to read captcha
+    captcha_text = pytesseract.image_to_string(image)
+
+    logger.info(f'Captcha text: {captcha_text}')
+    return captcha_text
+
+def select_random_ticket(page):
+    """Select a random available ticket from the list."""
+    logger.info("Selecting random ticket...")
+    selectable_tickets = page.query_selector_all('.select_form_b a[style="opacity: 1;"]')
+
+    if selectable_tickets:
+        random_ticket = random.choice(selectable_tickets)
+        random_ticket.click()
+        logger.info("Random ticket selected and clicked.")
     else:
-        logger.error("Failed to retrieve the captcha image.")
+        logger.warning("No available tickets to select.")
 
+def agree_terms(page):
+    """Agree to terms and conditions and proceed."""
+    logger.info("Agreeing to terms and conditions...")
+    page.click('#TicketForm_agree')
+    logger.info("Successfully agreed to terms and conditions.")
 
-def add_shopping_cart(page):
-    logger.info("Adding to shopping cart...")
-    page.click("xpath=//*[@id='addcart']/button")
-    logger.info("Successfully added to shopping cart.")
+def select_payment_method(page):
+    """Select payment method (e.g., Credit Card)."""
+    logger.info("Selecting payment method (Credit Card)...")
+    page.click('#CheckoutForm_paymentId_36')
+    logger.info("Payment method selected (Credit Card).")
+
+def submit_order(page):
+    """Submit the order and proceed to the next step."""
+    logger.info("Submitting the order...")
+    page.click('#submitButton')
+    logger.info("Order submitted.")
+
+def select_ticket_quantity(page, quantity='2'):
+    """Select ticket quantity by matching any possible ticketPrice select element."""
+    logger.info("Selecting ticket quantity...")
+
+    # Use a wildcard selector to match any element whose ID starts with 'TicketForm_ticketPrice_'
+    select_element = page.query_selector('select[id^="TicketForm_ticketPrice_"]')
+
+    if select_element:
+        page.select_option(select_element, quantity)
+        logger.info(f"Ticket quantity {quantity} selected.")
+    else:
+        logger.warning("No valid ticket quantity select element found.")
 
 def main():
+    """Main function to automate the ticket booking process."""
     logger.info("Starting ticket booking process...")
-    
+
+    # Load necessary environment variables
     url = os.getenv("URL")
-    username = os.getenv("USERNAME")
-    password = os.getenv("PASSWORD")
-    
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
 
+        # Go to the target URL
         page.goto(url)
-        
-        ocr = ddddocr.DdddOcr()
 
+        # Step 1: Buy ticket
         buy_ticket(page)
-        booking_currently(page)
-        computer_selector(page)
+        
+        # Step 2: Select event/game and proceed
+        buy_now(page)
 
-        rows = page.query_selector_all('tr.status_tr')
+        # Step 3: Select a random available ticket
+        select_random_ticket(page)
 
-        available_tickets = []
-        for row in rows:
-            seats = row.query_selector('td[data-title="空位："]').inner_text().strip()
-            if seats != "已售完":
-                area = row.query_selector('td[data-title="票區："]').inner_text().strip()
-                price = row.query_selector('td[data-title="票價："]').inner_text().strip()
-                available_tickets.append({"Area": area, "Price": price, "Seats": seats, "Element": row})
+        # Step 4: Select the ticket quantity (2 in this case)
+        logger.info("Selecting ticket quantity...")
+        select_ticket_quantity(page, '2')
+        logger.info("Ticket quantity selected.")
 
-        if available_tickets:
-            selected_ticket = random.choice(available_tickets)
-            logger.info(f"Selected ticket: {selected_ticket}")
-            selected_ticket['Element'].click()
-        else:
-            logger.warning("No available tickets.")
-        
-        for _ in range(2):
-            click_plus_button(page)
-        
-        input_username(page, username)
-        input_password(page, password)
+        # Step 5: Process captcha
+        process_captcha(page)
 
-        process_captcha(page, ocr)
-        
-        add_shopping_cart(page)
-        
-        click_popup_alert(page)
+        # Step 6: Agree to terms and conditions
+        agree_terms(page)
 
-        select_get_ticket_method(page)
-        
-        click_agree(page)
-        
-        click_next_step(page)
-        
+        # Step 7: Confirm the ticket count
+        logger.info("Confirming ticket count...")
+        page.click('button.btn.btn-primary.btn-green')
+        logger.info("Ticket count confirmed.")
+
+        # Step 8: Select payment method
+        select_payment_method(page)
+
+        # Step 9: Submit the order
+        submit_order(page)
+
+        # Sleep to keep the browser open (adjust as needed)
         time.sleep(600)
+
+        # Close the browser after completing the process
         browser.close()
         logger.info("Ticket booking process completed.")
 
